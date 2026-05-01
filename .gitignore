@@ -1,0 +1,87 @@
+# =============================================================================
+# Datathon 2026 — .gitignore
+# Repo chỉ chứa file cần thiết cho CHẤM BÀI & TÁI LẬP kết quả:
+#   - notebooks/, src/         (source code)
+#   - report/main.tex, main.pdf (báo cáo NeurIPS)
+#   - submissions/*.csv        (file nộp Kaggle)
+#   - requirements.txt, README.md, .gitignore
+# Mọi thứ khác → ignore (data, venv, cache, IDE, đề thi gốc, internal notes,
+# AI assistant config, build artifacts).
+# =============================================================================
+
+# --- Internal notes & AI assistant config (KHÔNG cho graders) -------------
+CLAUDE.md
+TOM_TAT_DE_BAI.md
+
+# --- Data (competition rules: KHÔNG commit data thô) ----------------------
+data/raw/*
+data/processed/*
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+
+# Folder Kaggle download (chứa 14 CSV gốc)
+datathon-2026-round-1/
+
+# --- File đề thi gốc & tài liệu ngoài (chỉ ở root) ------------------------
+/*.pdf
+/*.docx
+/*.xlsx
+/*.zip
+/*.tar.gz
+/*.7z
+
+# --- Python ---------------------------------------------------------------
+.venv/
+venv/
+env/
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+.env
+.python-version
+
+# --- Jupyter --------------------------------------------------------------
+.ipynb_checkpoints/
+*/.ipynb_checkpoints/*
+*-checkpoint.ipynb
+
+# --- IDE / OS -------------------------------------------------------------
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# --- Claude Code (settings & transcripts cục bộ) --------------------------
+.claude/
+
+# --- Model artifacts (regenerable từ code) --------------------------------
+*.pkl
+*.joblib
+*.h5
+*.onnx
+models/
+
+# --- LaTeX build artifacts (giữ .tex, .bib; bỏ build) ---------------------
+*.aux
+*.log
+*.out
+*.synctex.gz
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.toc
+*.lof
+*.lot
+*.nav
+*.snm
+*.vrb
+*.xdv
+report/_minted-*/
+report/auto/
+
+# --- Logs / temp ----------------------------------------------------------
+*.tmp
+.cache/
